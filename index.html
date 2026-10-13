@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mixed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;500;700&family=GFS+Didot&family=Gothic+A1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="loader" class="loader" role="status" aria-live="polite">
+    <img class="loader-glass" src="images/logo-glass.png" alt="">
+    <p class="loader-text">Mixing up your cocktails<span class="dots"></span></p>
+    <button type="button" id="retry-button" class="btn-dark loader-retry">Try again</button>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#">
+      <span class="logo-text">MIXED.</span>
+      <img class="logo-icon" src="images/logo-glass.png" alt="">
+    </a>
+    <nav class="site-nav">
+      <a href="#" class="active">Find Cocktails</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">WHAT CAN I MAKE?</p>
+    <h1>Find cocktails with<br>ingredients you have.</h1>
+  </section>
+
+  <main class="page">
+
+    <section class="panel filter-panel">
+      <div class="search-row">
+        <div class="search-box">
+          <input type="text" id="ingredient-input" autocomplete="off"
+                 placeholder="Search or add ingredients...">
+          <ul id="suggestions" class="suggestions" hidden></ul>
+          <button type="button" id="toggle-suggestions" class="search-toggle"
+                  aria-label="Show all ingredients"></button>
+        </div>
+        <div id="chips" class="chips"></div>
+        <button id="clear-button" class="btn-ghost">Clear all</button>
+        <button id="add-button" class="btn-dark">Add</button>
+      </div>
+
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label">Drink Type:</span>
+          <div class="pill-group">
+            <label class="pill"><input type="radio" name="drink-type" value="all" checked><span>All</span></label>
+            <label class="pill"><input type="radio" name="drink-type" value="alcoholic"><span>Alcoholic</span></label>
+            <label class="pill"><input type="radio" name="drink-type" value="non-alcoholic"><span>Non-Alcoholic</span></label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="category-select">Category:</label>
+          <select id="category-select">
+            <option value="all">All Categories</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="glass-select">Glass Type:</label>
+          <select id="glass-select">
+            <option value="all">All Glasses</option>
+          </select>
+        </div>
+
+                <div class="filter-group">
+          <span class="filter-label">Match Type:</span>
+          <label class="switch-pill">
+            <input type="checkbox" id="exact-toggle">
+            <span class="switch-track"><span class="switch-thumb"></span></span>
+            <span class="switch-text">Only my ingredients</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <aside class="panel ingredients-panel">
+        <h2 class="panel-title">Popular Ingredients:</h2>
+        <div id="popular-grid"></div>
+      </aside>
+
+      <section class="panel results-panel">
+        <p id="status" class="status"></p>
+        <div id="results" class="results-grid"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <dialog id="drink-dialog"></dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
